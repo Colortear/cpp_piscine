@@ -33,6 +33,7 @@ public:
 
 	void	PrintEntry(void);
 	void	Init(void);
+	void	~Contact(void);
 };
 
 class	Phonebook {
@@ -44,7 +45,7 @@ public:
 
 	void	Phonebook(void);
 	void	~Phonebook(void);
-	Contact SearchContact(int index) const;
+	void	SearchContact(int index) const;
 	void	AddContact(void);
 };
 
