@@ -6,7 +6,7 @@
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/02 22:35:56 by wdebs             #+#    #+#             */
-/*   Updated: 2017/07/02 23:09:45 by wdebs            ###   ########.fr       */
+/*   Updated: 2017/07/02 23:17:43 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,8 @@ Phonebook::AddContact (void) {
 	if (this->slotsleft < 8)
 	{
 		this->slots_left++;
+	}
+	else
+		std::cout << "PLS STOP IT HURTS!" << std::endl;
+}
 

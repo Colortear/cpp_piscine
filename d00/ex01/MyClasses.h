@@ -6,7 +6,7 @@
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/02 22:18:43 by wdebs             #+#    #+#             */
-/*   Updated: 2017/07/02 23:09:41 by wdebs            ###   ########.fr       */
+/*   Updated: 2017/07/02 23:17:41 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ public:
 	Contact	entries[8];
 	int		slots_left;
 
-	Phonebook(void);
-	~Phonebook(void);
+	void	Phonebook(void);
+	void	~Phonebook(void);
 	Contact SearchContact(int index) const;
-	AddContact(void);
+	void	AddContact(void);
 };
 
 #endif
