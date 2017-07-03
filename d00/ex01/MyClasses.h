@@ -13,12 +13,17 @@
 #ifndef MYCALSSES_H
 # define MYCLASSES_H
 
-#include <string>
+namespace	Util {
 
-class	Contact {
+	void	FormatPrint(std::string str);
+	void	Marge(std::string str1, std::string str2);
+}
+
+class		Contact {
 	
 public:
 
+	int			index;
 	std::string	first_name;
 	std::string	last_name;
 	std::string	nickname;
@@ -31,21 +36,22 @@ public:
 	std::string	undies_color;
 	std::string	darkest_secret;
 
+	void	PromptEntry(void);
 	void	PrintEntry(void);
-	void	Init(void);
-	void	~Contact(void);
+	void	Init(int i);
+	~Contact(void);
 };
 
-class	Phonebook {
+class		Phonebook {
 	
 public:
 
 	Contact	entries[8];
 	int		slots_left;
 
-	void	Phonebook(void);
-	void	~Phonebook(void);
-	void	SearchContact(int index) const;
+	Phonebook(void);
+	~Phonebook(void);
+	void	SearchContact(void);
 	void	AddContact(void);
 };
 

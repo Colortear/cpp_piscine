@@ -1,6 +1,6 @@
 NAME = phonebook
 CC = clang++
-OBJECTS = main.o MyClasses.o
+OBJECTS = main.o MyClasses.o utils.o
 CFLAGS = -Wall -Werror -Wextra -g
 all: $(NAME)
 $(NAME): $(OBJECTS)
