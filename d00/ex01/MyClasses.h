@@ -6,11 +6,11 @@
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/02 22:18:43 by wdebs             #+#    #+#             */
-/*   Updated: 2017/07/02 23:17:41 by wdebs            ###   ########.fr       */
+/*   Updated: 2017/07/03 13:59:24 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MYCALSSES_H
+#ifndef MYCLASSES_H
 # define MYCLASSES_H
 
 namespace	Util {

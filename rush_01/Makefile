@@ -6,13 +6,13 @@
 #    By: wdebs <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/07/03 12:30:33 by wdebs             #+#    #+#              #
-#    Updated: 2017/07/03 12:34:37 by wdebs            ###   ########.fr        #
+#    Updated: 2017/07/13 15:48:08 by wdebs            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = ft_gkrellm
 CC = clang++
-OBJECTS = main.o MyClasses.o utils.o
+OBJECTS = src/main.o
 CFLAGS = -Wall -Werror -Wextra
 all: $(NAME)
 $(NAME): $(OBJECTS)

@@ -6,7 +6,7 @@
 /*   By: wdebs <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/07/02 22:35:56 by wdebs             #+#    #+#             */
-/*   Updated: 2017/07/02 23:17:43 by wdebs            ###   ########.fr       */
+/*   Updated: 2017/07/03 12:14:45 by wdebs            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,38 +31,39 @@ void	Contact::PrintEntry (void) {
 
 void	Contact::Init(int i) {
 
-	this->index = i + 1;
+	this->index = i;
 	std::cout << "first name: ";
-	std::cin >> this->first_name;
+	getline(std::cin, this->first_name);
 	std::cout << "last name: ";
-	std::cin >> this->last_name;
+	getline(std::cin, this->last_name);
 	Util::Marge(this->first_name, this->last_name);
 	std::cout << "nickname: ";
-	std::cin >> this->nickname;
+	getline(std::cin, this->nickname);
 	std::cout << "login: ";
-	std::cin >> this->login;
+	getline(std::cin, this->login);
 	std::cout << "postal address: ";
-	std::cin >> this->address;
+	getline(std::cin, this->address);
 	std::cout << "email address: ";
-	std::cin >> this->email;
+	getline(std::cin, this->email);
 	std::cout << "phone number: ";
-	std::cin >> this->phone;
+	getline(std::cin, this->phone);
 	std::cout << "birthday date: ";
-	std::cin >> this->birthday;
+	getline(std::cin, this->birthday);
 	std::cout << "favorite meal: ";
-	std::cin >> this->fave_meal;
+	getline(std::cin, this->fave_meal);
 	std::cout << "underwear color: ";
-	std::cin >> this->undies_color;
+	getline(std::cin, this->undies_color);
 	std::cout << "darkest secret: ";
-	std::cin >> this->darkest_secret;
+	getline(std::cin, this->darkest_secret);
 }
 
 void Contact::PromptEntry(void) {
 	
-	std::cout << std::setw(10) << this->index << std::endl;
+	std::cout << std::setw(10) << this->index + 1 << "|";
 	Util::FormatPrint(this->first_name);
 	Util::FormatPrint(this->last_name);
 	Util::FormatPrint(this->nickname);
+	std::cout << std::endl;
 }
 
 Contact::~Contact(void) {
@@ -87,26 +88,39 @@ void	Phonebook::SearchContact (void) {
 	int		i;
 
 	std::cout << "Please select from the following entries" << std::endl;
-	for (i = 0; i < this->slots_left; i++)
+	for (i = 0; i <= this->slots_left; i++)
 		this->entries[i].PromptEntry();
+
 	std::cin >> index;
+	while (std::cin.fail()) {
+		std::cout << "PLease enter a valid integer." << std::endl;
+		std::cin.clear();
+		std::cin.ignore(256, '\n');
+		std::cin >> index;
+	}
+	std::cin.clear();
+	std::cin.ignore(256, '\n');
+
 	if (this->slots_left == -1)
+	{
 		std::cout << "No entries available" << std::endl;
-	else if (index < 1 || index > 8)
-		std::cout << "Please enter a valid index [1 - " << this->slots_left + 1 <<
-			"]" << std::endl;
+		std::cin.clear();
+		std::cin.ignore(256, '\n');
+	}
+	else if (index < 1 || index > this->slots_left + 1)
+		std::cout << "Please enter a valid index [1 - " << this->slots_left + 1 << "]" << std::endl;
 	else
-		this->entries[index].PrintEntry();
+		this->entries[index - 1].PrintEntry();
 }
 
 void	Phonebook::AddContact (void) {
 
-	if (this->slots_left < 8)
+	if (this->slots_left < 7)
 	{
 		this->slots_left++;
 		this->entries[slots_left].Init(this->slots_left);
 	}
 	else
-		std::cout << "Oops! it looks like you ran out of storage!" << std::endl;
+		std::cout << std::endl << "Oops! it looks like you ran out of storage!" << std::endl;
 }
 

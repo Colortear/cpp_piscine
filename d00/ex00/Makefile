@@ -4,7 +4,7 @@ OBJECTS = megaphone.o
 CFLAGS = -Wall -Werror -Wextra -g
 all: $(NAME)
 $(NAME): $(OBJECTS)
-	$(CC) $(CFLAGS) $(OBJECTS) -o $@
+	$(CC) $(CFLAGS) -I. $(OBJECTS) -o $@
 clean:
 	$(RM) $(OBJECTS)
 fclean: clean
